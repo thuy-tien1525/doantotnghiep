@@ -1,25 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b50b622-d4bd-4bea-960d-6bdbfaa75eea" name="Changes" comment="" />
+    <list default="true" id="9b50b622-d4bd-4bea-960d-6bdbfaa75eea" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Data/Order_data.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Search_data.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/Fixcart_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/Order_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/Search2_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/Search_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/cart_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_cart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_fixcart.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_order.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_search2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/test_TL.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/test_TL.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Login_data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Login_data.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/register_data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Data/register_data.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/register_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/register_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_register.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/data_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/data_reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/excel_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/excel_reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/test_result_writer_excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/test_result_writer_excel.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3CGAlgrXQbA0Q2uOCSDjYCPe4jN" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests in test_cart.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_fixcart.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_login.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_order.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_register.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_search.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cart_page.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/test_TL/Data&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\test_TL\Data" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\test_TL\Register_data" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
