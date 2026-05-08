@@ -96,14 +96,32 @@ class OrderPage:
         time.sleep(0.5)
         self.driver.execute_script("arguments[0].click();", element)
         time.sleep(2)
+
     def click_complete_order_btn(self):
-        element = WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[@class='step-footer-continue-btn btn']"))
+        button = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(
+                (By.CSS_SELECTOR, ".step-footer-continue-btn")
+            )
         )
-        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
-        time.sleep(0.5)
-        self.driver.execute_script("arguments[0].click();", element)
-        time.sleep(2)
+
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView({block:'center'});",
+            button
+        )
+
+        try:
+            WebDriverWait(self.driver, 5).until(
+                EC.element_to_be_clickable(
+                    (By.CSS_SELECTOR, ".step-footer-continue-btn")
+                )
+            )
+            button.click()
+
+        except:
+            self.driver.execute_script(
+                "arguments[0].click();",
+                button
+            )
 
     def get_message_text(self, timeout=10):
         try:
