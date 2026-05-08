@@ -18,8 +18,8 @@ class RegisterPage:
 
 
     def register(self, first_name="", last_name="", email="", phone="", password=""):
-        self.driver.find_element(*self.first_name_input).clear()
-        self.driver.find_element(*self.first_name_input).send_keys(first_name or "")
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.first_name_input)).clear()
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.first_name_input)).send_keys(first_name or "")
 
         self.driver.find_element(*self.last_name_input).clear()
         self.driver.find_element(*self.last_name_input).send_keys(last_name or "")

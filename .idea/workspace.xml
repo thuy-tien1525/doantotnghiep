@@ -7,7 +7,7 @@
     <list default="true" id="9b50b622-d4bd-4bea-960d-6bdbfaa75eea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_search.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/report/test_results_search.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/register_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/register_page.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
