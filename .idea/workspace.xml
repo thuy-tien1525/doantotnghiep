@@ -5,113 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b50b622-d4bd-4bea-960d-6bdbfaa75eea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/test_TL.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/test_TL.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/conftest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/cart_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/cart_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/register_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/register_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report/report.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/screenshots/test_add_to_cart_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/report/screenshots/test_add_to_cart_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/screenshots/test_order_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/report/screenshots/test_order_10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/screenshots/test_order_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/report/screenshots/test_order_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260420_225520.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260421_205544.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260421_205854.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260421_210143.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260421_210538.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260421_210656.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260421_210958.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260421_211134.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260425_214301.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260425_215412.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_093919.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_094203.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_094425.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_095521.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_100139.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_100351.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_101345.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_101514.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_101627.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_101847.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_213107.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_213532.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_213851.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_214003.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_220022.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_221802.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_223800.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_224122.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_224315.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_224527.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_224628.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260426_225154.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260501_081040.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260501_081506.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260501_081956.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260501_082619.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260501_082644.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_add_to_cart_20260508_214243.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_edit_cart_20260426_224816.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_edit_cart_20260426_225230.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_edit_cart_20260426_225324.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_edit_cart_20260426_225503.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_edit_cart_20260501_083620.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260417_212526.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260417_212730.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260417_213457.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260417_222139.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260417_222146.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_205555.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_205635.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_205846.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_210142.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_210531.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_210730.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_211200.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_211320.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_211636.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_211909.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_212606.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_224120.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_224524.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260418_231338.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260419_101524.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260419_112013.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260419_121059.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_login_20260419_121543.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260426_230047.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260426_230145.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_075547.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_080802.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_080852.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_081006.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_083934.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_092013.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_092124.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_092816.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_093751.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_102512.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_103621.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_103937.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_105954.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_110227.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260501_110739.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260506_211815.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260506_221249.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260506_235832.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260507_212838.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260507_214139.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260507_215332.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_order_20260507_223622.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_registration_20260419_130524.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_registration_20260419_205107.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/report/test_results_search.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/report/test_results_search.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_order.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_order.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_register.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_register.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/test_result_writer_excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/test_result_writer_excel.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,30 +30,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python tests.Python tests for .executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for tests.test_register.test_registration.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_cart.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_fixcart.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_login.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_order.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_register.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_search.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests in test_search2.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.pytest in test_search.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.cart_page.executor&quot;: &quot;Run&quot;,
-    &quot;Python.conftest.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/test_TL/Data&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python tests.Python tests for .executor": "Run",
+    "Python tests.Python tests for tests.executor": "Run",
+    "Python tests.Python tests for tests.test_register.test_registration.executor": "Run",
+    "Python tests.Python tests in test_cart.py.executor": "Run",
+    "Python tests.Python tests in test_fixcart.py.executor": "Run",
+    "Python tests.Python tests in test_login.py.executor": "Run",
+    "Python tests.Python tests in test_order.py.executor": "Run",
+    "Python tests.Python tests in test_register.py.executor": "Run",
+    "Python tests.Python tests in test_search.py.executor": "Run",
+    "Python tests.Python tests in test_search2.py.executor": "Run",
+    "Python tests.pytest for tests.test_register.test_registration.executor": "Run",
+    "Python tests.pytest in test_search.py.executor": "Run",
+    "Python.cart_page.executor": "Run",
+    "Python.conftest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "E:/test_TL/Data",
+    "settings.editor.selected.configurable": "advanced.settings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\test_TL\Data" />
@@ -169,7 +64,7 @@
       <recent name="E:\test_TL\Register_data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in tests">
+  <component name="RunManager" selected="Python tests.pytest for tests.test_register.test_registration">
     <configuration name="Python tests for tests" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="test_TL" />
       <option name="ENV_FILES" value="" />
@@ -182,6 +77,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;tests&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for tests.test_register.test_registration" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="test_TL" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.test_register.test_registration&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -221,12 +133,14 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Python tests for tests" />
       <item itemvalue="Python tests.pytest in PyCharm 2025.2.1.1" />
+      <item itemvalue="Python tests.pytest for tests.test_register.test_registration" />
       <item itemvalue="Python tests.pytest in tests" />
+      <item itemvalue="Python tests.Python tests for tests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest for tests.test_register.test_registration" />
         <item itemvalue="Python tests.pytest in tests" />
         <item itemvalue="Python tests.Python tests for tests" />
       </list>
