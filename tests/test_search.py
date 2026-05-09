@@ -6,6 +6,7 @@ from pages.Search_page import SearchPage
 from utils.test_result_writer_excel import write_test_results_excel
 from datetime import datetime
 
+
 test_data = read_excel_data("Data/Search_data.xlsx", "Search_data")
 all_results = []
 

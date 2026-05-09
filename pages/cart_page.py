@@ -44,7 +44,6 @@ class CartPage:
                 EC.presence_of_element_located(self.phanloai_mau)
             )
 
-            # lấy label cha
             parent = el.find_element(By.XPATH, "./..")
             class_attr = parent.get_attribute("class").lower()
 

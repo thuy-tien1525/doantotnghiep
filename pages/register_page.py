@@ -16,8 +16,49 @@ class RegisterPage:
         self.error_toast = (By.CSS_SELECTOR, ".toast-message")
         self.error_html5 = (By.XPATH, "//li[contains(text(),'Yêu cầu không hợp lệ, hoặc quá hạn, phiền bạn thử ')]")
 
+    def close_modal_if_present(self):
+        try:
+            wait = WebDriverWait(self.driver, 5)
 
+            modal = self.driver.find_elements(By.CLASS_NAME, "modal-tc")
+            if modal:
+                # thử click nút đóng nếu có
+                try:
+                    close_btn = self.driver.find_element(
+                        By.CSS_SELECTOR,
+                        ".modal-tc .close, .modal-tc .btn-close, .modal-tc button"
+                    )
+                    close_btn.click()
+                except:
+                    # fallback: remove luôn modal
+                    self.driver.execute_script("""
+                        document.querySelector('.modal-tc.open')?.remove();
+                    """)
+        except:
+            pass
+
+    def handle_overlays(self):
+        try:
+            # xoá modal / popup / overlay
+            self.driver.execute_script("""
+                document.querySelectorAll('.modal-tc, .modal, .overlay, .popup')
+                    .forEach(el => el.remove());
+            """)
+
+            # mở scroll nếu bị khóa (fullscreen modal hay dùng)
+            self.driver.execute_script("""
+                document.body.style.overflow = 'auto';
+            """)
+
+            # scroll xuống để tránh sticky header che nút
+            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+        except:
+            pass
     def register(self, first_name="", last_name="", email="", phone="", password=""):
+
+        self.handle_overlays()
+
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.first_name_input)).clear()
         WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.first_name_input)).send_keys(first_name or "")
 

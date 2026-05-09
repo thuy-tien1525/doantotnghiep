@@ -6,7 +6,6 @@ from pages.register_page import RegisterPage
 
 test_data = read_excel_data("Data/register_data.xlsx", "register_data")
 
-
 @pytest.mark.parametrize("index,first_name,last_name,email,phone,password,expected_result", [
     (i + 1, *row) for i, row in enumerate(test_data)
 ])
