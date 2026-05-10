@@ -1,4 +1,3 @@
-import time
 import os
 import pytest
 from utils.excel_reader import read_excel_data
@@ -27,12 +26,16 @@ def test_search(browser, index, keyword, expected_result):
 
     try:
         if keyword.strip() == "":
-            # TH không nhập keyword => bắt lỗi HTML5
-            actual_result = search_page.get_error()
-        else:
+
             search_page.search(keyword)
+
             actual_result = search_page.get_error()
 
+        else:
+
+            search_page.search(keyword)
+
+            actual_result = search_page.get_search_result()
         if expected_result.strip().lower() in actual_result.strip().lower():
             status = "PASS"
         else:
