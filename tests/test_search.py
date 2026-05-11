@@ -1,10 +1,10 @@
+import time
 import os
 import pytest
 from utils.excel_reader import read_excel_data
 from pages.Search_page import SearchPage
 from utils.test_result_writer_excel import write_test_results_excel
 from datetime import datetime
-
 
 test_data = read_excel_data("Data/Search_data.xlsx", "Search_data")
 all_results = []
@@ -26,16 +26,12 @@ def test_search(browser, index, keyword, expected_result):
 
     try:
         if keyword.strip() == "":
-
+            # TH không nhập keyword => bắt lỗi HTML5
+            actual_result = search_page.get_error()
+        else:
             search_page.search(keyword)
-
             actual_result = search_page.get_error()
 
-        else:
-
-            search_page.search(keyword)
-
-            actual_result = search_page.get_search_result()
         if expected_result.strip().lower() in actual_result.strip().lower():
             status = "PASS"
         else:
