@@ -57,4 +57,3 @@ class SearchPage:
             messages.append("Không có thông báo hiển thị.")
 
         return " | ".join(messages)
-
