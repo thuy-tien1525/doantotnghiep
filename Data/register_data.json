@@ -1,0 +1,114 @@
+[
+  {
+    "lastName": "",
+    "firstName": "Tiên",
+    "email": "thuytien1@gmail.com",
+    "phoneNumber": "348767876",
+    "password": "Tien12",
+    "expected_result": "Please fill out this field."
+  },
+  {
+    "lastName": "Phạm",
+    "firstName": "",
+    "email": "thuytien1@gmail.com",
+    "phoneNumber": "348767876",
+    "password": "Tien13",
+    "expected_result": "Please fill out this field."
+  },
+  {
+    "lastName": "Pham",
+    "firstName": "Tien",
+    "email": "",
+    "phoneNumber": "348767877",
+    "password": "Tien14",
+    "expected_result": "Please fill out this field."
+  },
+  {
+    "lastName": "Pham",
+    "firstName": "Tien",
+    "email": "thuytien9@gmail.com",
+    "phoneNumber": "",
+    "password": "Tien15",
+    "expected_result": "Please fill out this field."
+  },
+  {
+    "lastName": "Pham",
+    "firstName": "Tien",
+    "email": "thuytien9@gmail.com",
+    "phoneNumber": "348767877",
+    "password": "",
+    "expected_result": "Please fill out this field."
+  },
+  {
+    "lastName": "Pham",
+    "firstName": "Tien",
+    "email": "thuytien010524@gmail.com",
+    "phoneNumber": "348767878",
+    "password": "Tien16",
+    "expected_result": "Please fill out this field."
+  },
+  {
+    "lastName": "Pham",
+    "firstName": "Tien",
+    "email": "thuytien8@gmail.com",
+    "phoneNumber": "345566",
+    "password": "Tien17",
+    "expected_result": "Please fill out this field."
+  },
+  {
+    "lastName": "Pham",
+    "firstName": "Tien",
+    "email": "thuytien8@gmail.com",
+    "phoneNumber": "365746537",
+    "password": "Ti",
+    "expected_result": "Please fill out this field."
+  },
+  {
+    "lastName": "Pham",
+    "firstName": "Linh",
+    "email": "thuytien10gmail.com",
+    "phoneNumber": "328765456",
+    "password": "Tien13",
+    "expected_result": "Please include an '@' in the email address. 'thuytien10gmail.com' is missing an '@'."
+  },
+  {
+    "lastName": "Pham",
+    "firstName": "Linh",
+    "email": "thuytien@@gamail.com",
+    "phoneNumber": "329878765",
+    "password": "Tien13",
+    "expected_result": "A part following '@' should not contain the symbol '@'."
+  },
+  {
+    "lastName": "Pham",
+    "firstName": "Linh",
+    "email": "thuytien@gmail..com",
+    "phoneNumber": "329875456",
+    "password": "Tien13",
+    "expected_result": "'.' is used at a wrong position in 'gmail..com'."
+  },
+  {
+    "lastName": "Pham",
+    "firstName": "Linh",
+    "email": "thuytien@",
+    "phoneNumber": "328765676",
+    "password": "Tien13",
+    "expected_result": "Please enter a part following '@'. 'thuytien@' is incomplete."
+  },
+  {
+    "lastName": "Pham",
+    "firstName": "Linh",
+    "email": "thuytien2@gmail.com",
+    "phoneNumber": "329693956",
+    "password": "123456",
+    "expected_result": "Please fill out this field."
+  },
+  {
+    "lastName": "Pham!",
+    "firstName": "Linh",
+    "email": "thuytien3@gmail.com",
+    "phoneNumber": "876567435",
+    "password": "\"Mai123@\"",
+    "expected_result": "Please fill out this field."
+  }
+]

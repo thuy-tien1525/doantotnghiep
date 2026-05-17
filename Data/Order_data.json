@@ -1,0 +1,132 @@
+[
+  {
+    "fullName": "Mai Nguyễn",
+    "email": "mai12@gmail.com",
+    "phoneNumber": "324567654",
+    "address": "Hòa An, Cẩm Lệ, Đà Nẵng",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Đặt hàng thành công"
+  },
+  {
+    "fullName": "",
+    "email": "mai12@gmail.com",
+    "phoneNumber": "324567655",
+    "address": "Hòa An, Cẩm Lệ, Đà Nẵng",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Vui lòng nhập họ tên"
+  },
+  {
+    "fullName": "Mai Nguyễn",
+    "email": "mai12@gmail.com",
+    "phoneNumber": "",
+    "address": "Hòa An, Cẩm Lệ, Đà Nẵng",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Số điện thoại không được trống"
+  },
+  {
+    "fullName": "Mai Nguyễn",
+    "email": "mai12@gmail.com",
+    "phoneNumber": "324567655",
+    "address": "",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Địa chỉ không được trống"
+  },
+  {
+    "fullName": "Mai Nguyễn",
+    "email": "mai34",
+    "phoneNumber": "324567656",
+    "address": "Hòa An, Cẩm Lệ, Đà Nẵng",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Địa chỉ email không hợp lệ"
+  },
+  {
+    "fullName": "Mai Nguyễn",
+    "email": "mai@gmai",
+    "phoneNumber": "324567657",
+    "address": "Hòa An, Cẩm Lệ, Đà Nẵng",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Địa chỉ email không hợp lệ"
+  },
+  {
+    "fullName": "Mai Nguyễn",
+    "email": "mai12@gmail.com",
+    "phoneNumber": "12345",
+    "address": "Hòa An, Cẩm Lệ, Đà Nẵng",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Số điện thoại không hợp lệ (độ dài từ 8 - 15 ký tự, không chứa ký tự đặc biệt và khoảng trắng)"
+  },
+  {
+    "fullName": "Mai Nguyễn",
+    "email": "mai12@gmail.com",
+    "phoneNumber": "0987asf786",
+    "address": "Hòa An, Cẩm Lệ, Đà Nẵng",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Số điện thoại không hợp lệ (độ dài từ 8 - 15 ký tự, không chứa ký tự đặc biệt và khoảng trắng)"
+  },
+  {
+    "fullName": "Mai Nguyễn",
+    "email": "mai12@gmail.com",
+    "phoneNumber": "098 896743",
+    "address": "Hòa An, Cẩm Lệ, Đà Nẵng",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Số điện thoại không hợp lệ (độ dài từ 8 - 15 ký tự, không chứa ký tự đặc biệt và khoảng trắng)"
+  },
+  {
+    "fullName": "Mai Nguyễn",
+    "email": "mai12@gmail.com",
+    "phoneNumber": "987654321",
+    "address": "Hòa An, Cẩm Lệ, Đà Nẵng",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Đặt hàng thành công"
+  },
+  {
+    "fullName": "Mai Nguyễn",
+    "email": "mai12@gmail.com",
+    "phoneNumber": "1.23457E+15",
+    "address": "Hòa An, Cẩm Lệ, Đà Nẵng",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Số điện thoại không hợp lệ (độ dài từ 8 - 15 ký tự, không chứa ký tự đặc biệt và khoảng trắng)"
+  },
+  {
+    "fullName": "Mai",
+    "email": "mai12@gmail.com",
+    "phoneNumber": "987654321",
+    "address": "Hòa An, Cẩm Lệ, Đà Nẵng",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Đặt hàng thành công"
+  },
+  {
+    "fullName": "Mai Nguyễn",
+    "email": "mai12@gmail.com",
+    "phoneNumber": "986547897",
+    "address": "$$$%%%",
+    "province": "Đà Nẵng",
+    "district": "Quận Cẩm Lệ",
+    "ward": "Phường Hòa An",
+    "expected_result": "Địa chỉ không hợp lệ"
+  }
+]

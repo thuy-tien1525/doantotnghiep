@@ -1,0 +1,67 @@
+[
+  {
+    "email": "thuytien010524@gmail.com",
+    "password": "Tien15",
+    "expected_result": "Hi, Phạm Tiên"
+  },
+  {
+    "email": "",
+    "password": "",
+    "expected_result": "Please fill out this field."
+  },
+  {
+    "email": "",
+    "password": "Tien15",
+    "expected_result": "Please fill out this field."
+  },
+  {
+    "email": "thuytien010524@gmail.com",
+    "password": "Ti",
+    "expected_result": "Thông tin đăng nhập không hợp lệ."
+  },
+  {
+    "email": "thuytien01gmail.com",
+    "password": "Tien15",
+    "expected_result": "Please include an '@' in the email address. 'thuytien01gmail.com' is missing an '@'."
+  },
+  {
+    "email": "thuytien010524@gmail.com",
+    "password": "Tien13",
+    "expected_result": "Thông tin đăng nhập không hợp lệ."
+  },
+  {
+    "email": "thuytien01@gmail.com",
+    "password": "Tien15",
+    "expected_result": "Thông tin đăng nhập không hợp lệ."
+  },
+  {
+    "email": "thuytien01@",
+    "password": "Tien15",
+    "expected_result": "Please enter a part following '@'. 'thuytien01@' is incomplete."
+  },
+  {
+    "email": "thuytien010524@@gmail.com",
+    "password": "Tien15",
+    "expected_result": "A part following '@' should not contain the symbol '@'."
+  },
+  {
+    "email": "thuytien010524@gmail..com",
+    "password": "Tien15",
+    "expected_result": "'.' is used at a wrong position in 'gmail..com'."
+  },
+  {
+    "email": "thuytien1524@gmail.com",
+    "password": "",
+    "expected_result": "Please fill out this field."
+  },
+  {
+    "email": "THUYTIEN010524@gmail.com",
+    "password": "Tien15",
+    "expected_result": "Hi, Phạm Tiên"
+  },
+  {
+    "email": "thuytien010524@gmail.com",
+    "password": "TIEN150524",
+    "expected_result": "Thông tin đăng nhập không hợp lệ."
+  }
+]

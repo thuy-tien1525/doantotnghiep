@@ -15,18 +15,15 @@ class OrderPage:
         self.btn_checkout = (By.XPATH, "//button[@title='Tiến hành đặt hàng']")
         self.no_invoice_btn = (By.XPATH, "//button[contains(text(),'Không xuất hóa đơn và đến trang Thanh toán')]")
 
-        # Thông tin khách hàng
         self.input_fullname = (By.ID, "billing_address_full_name")
         self.input_email = (By.ID, "checkout_user_email")
         self.input_phone = (By.ID, "billing_address_phone")
         self.input_address = (By.ID, "billing_address_address1")
 
-        # Select địa chỉ
         self.tinh_select = (By.ID, "customer_shipping_province")
         self.huyen_select = (By.ID, "customer_shipping_district")
         self.xa_select = (By.ID, "customer_shipping_ward")
 
-        # Thanh toán
         self.continue_btn = (By.CSS_SELECTOR, "button.step-footer-continue-btn.btn")
         self.success_text = (By.XPATH, "//h2[contains(text(),'Đặt hàng thành công')]")
         self.error_message = (By.CSS_SELECTOR, ".toast-message")

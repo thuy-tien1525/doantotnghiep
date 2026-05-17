@@ -2,16 +2,16 @@ import os
 import time
 import pytest
 from datetime import datetime
-from utils.excel_reader import read_excel_data
+from utils.data_reader import data_reader
 from utils.test_result_writer_excel import write_test_results_excel
 from pages.cart_page import CartPage
 from pages.Order_page import OrderPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 
-
-test_data = read_excel_data("Data/Order_data.xlsx", "Order_data")
+test_data = data_reader("Data/Order_data.xlsx", "Order_data")
 all_results = []
 
 @pytest.mark.parametrize(
@@ -57,7 +57,7 @@ def   test_order(browser, index, fullname, email, phone, address, province, dist
         order_page.click_continue()
         order_page.click_complete_order_btn()
 
-        from selenium.common.exceptions import TimeoutException
+
 
         try:
             WebDriverWait(driver, 10).until(

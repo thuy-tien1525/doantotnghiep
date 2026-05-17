@@ -1,0 +1,15 @@
+﻿lastName,firstName,email,phone number,password,expected_result
+,Tiên,thuytien1@gmail.com,348767876,Tien12,Please fill out this field.
+Phạm,,thuytien1@gmail.com,348767876,Tien13,Please fill out this field.
+Pham,Tien,,348767877,Tien14,Please fill out this field.
+Pham,Tien,thuytien9@gmail.com,,Tien15,Please fill out this field.
+Pham,Tien,thuytien9@gmail.com,348767877,,Please fill out this field.
+Pham,Tien,thuytien010524@gmail.com,348767878,Tien16,Please fill out this field.
+Pham,Tien,thuytien8@gmail.com,345566,Tien17,Please fill out this field.
+Pham,Tien,thuytien8@gmail.com,365746537,Ti,Please fill out this field.
+Pham,Linh,thuytien10gmail.com,328765456,Tien13,Please include an '@' in the email address. 'thuytien10gmail.com' is missing an '@'.
+Pham,Linh,thuytien@@gamail.com,329878765,Tien13,A part following '@' should not contain the symbol '@'.
+Pham,Linh,thuytien@gmail..com,329875456,Tien13,'.' is used at a wrong position in 'gmail..com'.
+Pham,Linh,thuytien@,328765676,Tien13,Please enter a part following '@'. 'thuytien@' is incomplete.
+Pham,Linh,thuytien2@gmail.com,329693956,123456,Please fill out this field.
+Pham!,Linh,thuytien3@gmail.com,876567435,"""Mai123@""",Please fill out this field.

@@ -5,7 +5,6 @@ from datetime import datetime
 from pages.cart_page import CartPage
 from utils.test_result_writer_excel import write_test_results_excel
 
-# List lưu kết quả test
 all_results = []
 
 @pytest.mark.parametrize("index,url,expected_product", [
@@ -25,7 +24,6 @@ def test_add_to_cart(browser, index, url, expected_product):
     status = "FAIL"
 
     try:
-        # Click nhanh xem sản phẩm
         cart_page.click_quick_view()
         time.sleep(2)
 
@@ -33,17 +31,14 @@ def test_add_to_cart(browser, index, url, expected_product):
         # Lấy tên sản phẩm trước khi thêm
         product_name = cart_page.get_product_name()
 
-        # Thêm vào giỏ
         cart_page.click_add_to_cart()
         time.sleep(2)
 
-        # Mở giỏ hàng
         cart_page.open_cart()
         time.sleep(2)
 
         name_in_cart = cart_page.get_text_in_cart()
         actual_result = name_in_cart
-
 
         if product_name.strip().lower() in name_in_cart.strip().lower():
             status = "PASS"

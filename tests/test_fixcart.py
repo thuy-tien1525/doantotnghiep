@@ -71,7 +71,6 @@ def test_edit_cart_thienlong():
     finally:
         driver.quit()
 
-    # Lưu kết quả vào list
     all_results.append({
         "Time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "Test Name": test_name,
@@ -81,7 +80,6 @@ def test_edit_cart_thienlong():
     })
 
     assert status == "PASS", f"[{test_name}] Actual: {actual_result}"
-
 
 def teardown_module(module):
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

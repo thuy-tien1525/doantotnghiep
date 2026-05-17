@@ -1,0 +1,14 @@
+﻿Họ và tên,Email,Số điện thoại,Địa chỉ ,Tỉnh,Huyện ,Xã,expected_result
+Mai Nguyễn,mai12@gmail.com,324567654,"Hòa An, Cẩm Lệ, Đà Nẵng",Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,Đặt hàng thành công
+,mai12@gmail.com,324567655,"Hòa An, Cẩm Lệ, Đà Nẵng",Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,Vui lòng nhập họ tên
+Mai Nguyễn,mai12@gmail.com,,"Hòa An, Cẩm Lệ, Đà Nẵng",Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,Số điện thoại không được trống
+Mai Nguyễn,mai12@gmail.com,324567655,,Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,Địa chỉ không được trống
+Mai Nguyễn,mai34,324567656,"Hòa An, Cẩm Lệ, Đà Nẵng",Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,Địa chỉ email không hợp lệ
+Mai Nguyễn,mai@gmai,324567657,"Hòa An, Cẩm Lệ, Đà Nẵng",Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,Địa chỉ email không hợp lệ
+Mai Nguyễn,mai12@gmail.com,12345,"Hòa An, Cẩm Lệ, Đà Nẵng",Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,"Số điện thoại không hợp lệ (độ dài từ 8 - 15 ký tự, không chứa ký tự đặc biệt và khoảng trắng"
+Mai Nguyễn,mai12@gmail.com,0987asf786,"Hòa An, Cẩm Lệ, Đà Nẵng",Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,"Số điện thoại không hợp lệ (độ dài từ 8 - 15 ký tự, không chứa ký tự đặc biệt và khoảng trắng)"
+Mai Nguyễn,mai12@gmail.com,098 896743,"Hòa An, Cẩm Lệ, Đà Nẵng",Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,"Số điện thoại không hợp lệ (độ dài từ 8 - 15 ký tự, không chứa ký tự đặc biệt và khoảng trắng)"
+Mai Nguyễn,mai12@gmail.com,987654321,"Hòa An, Cẩm Lệ, Đà Nẵng",Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,Đặt hàng thành công
+Mai Nguyễn,mai12@gmail.com,1.23457E+15,"Hòa An, Cẩm Lệ, Đà Nẵng",Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,"Số điện thoại không hợp lệ (độ dài từ 8 - 15 ký tự, không chứa ký tự đặc biệt và khoảng trắng)"
+Mai ,mai12@gmail.com,987654321,"Hòa An, Cẩm Lệ, Đà Nẵng",Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,Đặt hàng thành công
+Mai Nguyễn,mai12@gmail.com,986547897,$$$%%%,Đà Nẵng,Quận Cẩm Lệ,Phường Hòa An,Địa chỉ không hợp lệ

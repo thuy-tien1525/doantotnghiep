@@ -10,7 +10,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 def browser():
     chrome_options = Options()
 
-    # CI/CD chạy headless
     if os.getenv("CI"):
         chrome_options.add_argument("--headless=new")
         chrome_options.add_argument("--no-sandbox")

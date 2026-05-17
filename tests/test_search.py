@@ -1,12 +1,12 @@
 import time
 import os
 import pytest
-from utils.excel_reader import read_excel_data
+from utils.data_reader import data_reader
 from pages.Search_page import SearchPage
 from utils.test_result_writer_excel import write_test_results_excel
 from datetime import datetime
 
-test_data = read_excel_data("Data/Search_data.xlsx", "Search_data")
+test_data = data_reader("Data/Search_data.json", "Search_data")
 all_results = []
 
 @pytest.mark.parametrize("index,keyword,expected_result", [

@@ -2,12 +2,12 @@ import time
 import os
 import pytest
 from pages.login_page import LoginPage
-from utils.excel_reader import read_excel_data
+from utils.data_reader import data_reader
 from utils.test_result_writer_excel import write_test_results_excel
 from datetime import datetime
 
 
-test_data = read_excel_data("Data/Login_data.xlsx", "login_data")
+test_data = data_reader("Data/Login_data.xlsx", "login_data")
 all_results = []
 
 @pytest.mark.parametrize("index,email,password,expected_result", [
