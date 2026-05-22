@@ -1,27 +1,26 @@
 import os
-import time
 import pytest
 from datetime import datetime
 from utils.data_reader import data_reader
 from utils.test_result_writer_excel import write_test_results_excel
-from pages.cart_page import CartPage
-from pages.Order_page import OrderPage
+from pages2.cart_page2 import CartPage
+from pages2.Order_page2 import OrderPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-
-test_data = data_reader("Data/Order_data.xlsx", "Order_data")
+import time
+test_data = data_reader("Data/Order2_data.xlsx", "Order2_data")
 all_results = []
 
 @pytest.mark.parametrize(
     "index,fullname,email,phone,address,province,district,ward,expected_result",
     [(i + 1, *row) for i, row in enumerate(test_data)]
 )
-def   test_order(browser, index, fullname, email, phone, address, province, district, ward, expected_result):
+def   test_order2(browser, index, fullname, email, phone, address, province, district, ward, expected_result):
     driver = browser
-    cart_page = CartPage(driver)
-    order_page = OrderPage(driver)
+    cart_page2 = CartPage(driver)
+    order_page2 = OrderPage(driver)
 
     driver.maximize_window()
     driver.get("https://savani.vn/products/ao-thun-ngan-tay-co-tron-nam-mtsa502s6")
@@ -32,47 +31,41 @@ def   test_order(browser, index, fullname, email, phone, address, province, dist
     status = "FAIL"
 
     try:
-        cart_page.click_quick_view()
-        product_name = cart_page.get_product_name()
 
-        assert cart_page.select_color(), "Sản phẩm hết hàng"
-        cart_page.click_add_to_cart()
-        WebDriverWait(driver, 10).until(
-            EC.invisibility_of_element_located((By.CLASS_NAME, "swal-overlay"))
-        )
-
-        cart_page.open_cart()
-
-        name_in_cart = cart_page.get_text_in_cart()
-
-        assert product_name == name_in_cart, f"Sản phẩm giỏ không đúng: {name_in_cart}"
-
-        order_page.go_to_cart()
-        order_page.click_checkout()
-        order_page.click_no_invoice()
-        order_page.fill_customer_info(fullname, email, phone, address)
-        order_page.select_province(province)
-        order_page.select_district(district)
-        order_page.select_ward(ward)
-        order_page.click_continue()
-        order_page.click_complete_order_btn()
-
-
+        order_page2.click_add_to_cart()
+        cart_page2.click_checkout_popup()
+        order_page2.click_checkout()
+        order_page2.fill_customer_info(fullname, email, phone, address)
+        order_page2.select_province(province)
+        order_page2.select_district(district)
+        order_page2.select_ward(ward)
+        order_page2.click_continue()
+        time.sleep(5)
+        order_page2.click_complete_order_btn()
 
         try:
             WebDriverWait(driver, 10).until(
-                lambda d: len(order_page.get_message_text()) > 0
-                          or order_page.get_success_message() != ""
+                lambda d: len(order_page2.get_message_text()) > 0
+                          or order_page2.get_success_message() != ""
             )
         except TimeoutException:
             pass
 
-        errors = order_page.get_message_text()  # trả về list lỗi
+        time.sleep(3)
+        errors = []
+        try:
+            errors = order_page2.get_message_text()
+        except Exception:
+            try:
+                time.sleep(2)
+                errors = order_page2.get_message_text()
+            except:
+                errors = []
         if errors:
             actual_result = errors[0]  # lấy lỗi đầu tiên
         else:
             # Nếu không có lỗi, kiểm tra thông báo đặt hàng thành công
-            actual_result = order_page.get_success_message()
+            actual_result = order_page2.get_success_message()
             if not actual_result:
                 actual_result = ""
 

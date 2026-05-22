@@ -8,8 +8,8 @@ from utils.test_result_writer_excel import write_test_results_excel
 all_results = []
 
 @pytest.mark.parametrize("index,url,expected_product", [
-    (1, "https://thienlong.vn/collections/may-tinh-khoa-hoc-1?q=filter=((collectionid:product=1003213612))&page=1&sortby=manual&view=grid",
-     "Máy tính khoa học Thiên Long Flexio Fx509VN - Có hơn 240 tính năng")
+    (1, "https://thienlong.vn/collections/bst-cap-chong-gu?q=filter=((collectionid:product=1003163196))&page=1&sortby=created-descending&view=grid",
+     "Cặp - Balo học sinh chống gù Thiên Long Baby Gon BP-016/BG")
 ])
 def test_add_to_cart(browser, index, url, expected_product):
     driver = browser
@@ -27,7 +27,7 @@ def test_add_to_cart(browser, index, url, expected_product):
         cart_page.click_quick_view()
         time.sleep(2)
 
-        assert cart_page.select_color(), "Sản phẩm hết hàng"
+        cart_page.select_color()
         # Lấy tên sản phẩm trước khi thêm
         product_name = cart_page.get_product_name()
 

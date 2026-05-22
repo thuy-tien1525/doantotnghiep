@@ -7,9 +7,9 @@ import time
 class CartPage:
     def __init__(self, driver):
         self.driver = driver
-        self.quick_view = (By.XPATH, "//body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/section[1]/div[1]/div[1]/div[1]/form[1]/div[2]/div[4]/div[1]/a[1]/span[1]")
+        self.quick_view = (By.XPATH, "(//a[@title='Xem nhanh'])[1]")
         self.phanloai_mau = (By.XPATH, "//input[@id='swatch-0-trang']")
-        self.btn_add = (By.CSS_SELECTOR, ".add_to_cart")
+        self.btn_add = (By.XPATH, "//div[contains(@class,'quickview-product')]//button[@type='submit']")
         self.cart_icon = (By.XPATH, "//a[@title='Giỏ hàng']")
         self.text_cart = (By.XPATH, "//a[@class='text2line']")
         self.product_name = (By.XPATH, "//a[@class='text2line']")
@@ -40,37 +40,56 @@ class CartPage:
 
     def select_color(self):
         try:
-            el = WebDriverWait(self.driver, 5).until(
-                EC.presence_of_element_located(self.phanloai_mau)
+            colors = WebDriverWait(self.driver, 5).until(
+                EC.presence_of_all_elements_located(
+                    (By.CSS_SELECTOR, ".swatch-element")
+                )
             )
 
-            parent = el.find_element(By.XPATH, "./..")
-            class_attr = parent.get_attribute("class").lower()
+            for color in colors:
+                class_attr = color.get_attribute("class").lower()
 
-            if "soldout" in class_attr or "disabled" in class_attr:
-                print(" Màu trắng hết hàng")
-                return False
+                if "soldout" not in class_attr and "disabled" not in class_attr:
+                    self.driver.execute_script(
+                        "arguments[0].click();",
+                        color
+                    )
 
-            self.driver.execute_script("arguments[0].click();", el)
-            print(" Đã chọn màu trắng")
-            return True
+                    print("Đã chọn màu")
+                    return True
+
+            print("Không có màu khả dụng")
+            return False
 
         except Exception as e:
-            print(" Không chọn được màu:", e)
+            print("Không chọn được màu:", e)
             return False
+
     def click_add_to_cart(self):
         wait = WebDriverWait(self.driver, 10)
 
-        btn = wait.until(EC.element_to_be_clickable(self.btn_add))
-
-        self.driver.execute_script(
-            "arguments[0].scrollIntoView({block:'center'});", btn
+        btn = wait.until(
+            EC.element_to_be_clickable(self.btn_add)
         )
+
+        # Scroll chính xác tới vị trí cao hơn button
+        self.driver.execute_script("""
+            const rect = arguments[0].getBoundingClientRect();
+            window.scrollTo({
+                top: window.pageYOffset + rect.top - 250,
+                behavior: 'instant'
+            });
+        """, btn)
+
+        time.sleep(1)
 
         try:
             btn.click()
         except:
-            self.driver.execute_script("arguments[0].click();", btn)
+            self.driver.execute_script(
+                "arguments[0].click();",
+                btn
+            )
 
         print("Click add to cart OK")
 
