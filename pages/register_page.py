@@ -77,43 +77,99 @@ class RegisterPage:
         self.driver.find_element(*self.register_btn).click()
 
     def get_message(self, first_name, last_name, email, phone, password, timeout=3):
+
+        def clean_message(msg):
+            if not msg:
+                return ""
+
+            msg = msg.strip()
+
+            # bỏ message rác
+            if msg.lower() in ["message:", "message"]:
+                return ""
+
+            return msg
+
         # Required fields
         if not first_name:
-            return self.driver.find_element(*self.first_name_input).get_attribute("validationMessage")
-        if not last_name:
-            return self.driver.find_element(*self.last_name_input).get_attribute("validationMessage")
-        if not email:
-            return self.driver.find_element(*self.email_input).get_attribute("validationMessage")
-        if not phone:
-            return self.driver.find_element(*self.phone_input).get_attribute("validationMessage")
-        if not password:
-            return self.driver.find_element(*self.password_input).get_attribute("validationMessage")
+            return clean_message(
+                self.driver.find_element(*self.first_name_input)
+                .get_attribute("validationMessage")
+            )
 
-        email_validation = self.driver.find_element(*self.email_input).get_attribute("validationMessage")
+        if not last_name:
+            return clean_message(
+                self.driver.find_element(*self.last_name_input)
+                .get_attribute("validationMessage")
+            )
+
+        if not email:
+            return clean_message(
+                self.driver.find_element(*self.email_input)
+                .get_attribute("validationMessage")
+            )
+
+        if not phone:
+            return clean_message(
+                self.driver.find_element(*self.phone_input)
+                .get_attribute("validationMessage")
+            )
+
+        if not password:
+            return clean_message(
+                self.driver.find_element(*self.password_input)
+                .get_attribute("validationMessage")
+            )
+
+        # Email format validation
+        email_validation = clean_message(
+            self.driver.find_element(*self.email_input)
+            .get_attribute("validationMessage")
+        )
+
         if email_validation:
             return email_validation
 
+        # Browser alert
         try:
             WebDriverWait(self.driver, 2).until(EC.alert_is_present())
             alert = self.driver.switch_to.alert
-            text = alert.text.strip()
+
+            text = clean_message(alert.text)
+
             alert.accept()
-            return text
+
+            if text:
+                return text
+
         except TimeoutException:
             pass
 
+        # Toast message
         try:
             element = WebDriverWait(self.driver, timeout).until(
                 EC.visibility_of_element_located((By.CSS_SELECTOR, ".toast-message"))
             )
-            return element.text.strip()
+
+            text = clean_message(element.text)
+
+            if text:
+                return text
+
         except TimeoutException:
             pass
+
+        # HTML error
         try:
             element = WebDriverWait(self.driver, timeout).until(
                 EC.visibility_of_element_located(self.error_html5)
             )
-            return element.text.strip()
+
+            text = clean_message(element.text)
+
+            if text:
+                return text
+
         except TimeoutException:
             pass
 

@@ -8,9 +8,9 @@ import time
 class OrderPage:
     def __init__(self, driver):
         self.driver = driver
-        self.quick_view = (By.XPATH,"//body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/section[1]/div[1]/div[1]/div[1]/form[1]/div[2]/div[4]/div[1]/a[1]/span[1]")
+        self.quick_view = (By.XPATH, "(//a[@title='Xem nhanh'])[1]")
         self.phanloai_mau = (By.XPATH, "//input[@id='swatch-0-trang']")
-        self.btn_add = (By.CSS_SELECTOR, ".add_to_cart")
+        self.btn_add = (By.XPATH, "//div[contains(@class,'quickview-product')]//button[@type='submit']")
         self.cart_icon = (By.XPATH, "//a[@title='Giỏ hàng']")
         self.btn_checkout = (By.XPATH, "//button[@title='Tiến hành đặt hàng']")
         self.no_invoice_btn = (By.XPATH, "//button[contains(text(),'Không xuất hóa đơn và đến trang Thanh toán')]")
@@ -121,15 +121,76 @@ class OrderPage:
             )
 
     def get_message_text(self, timeout=10):
+
+        def clean_message(msg):
+            if not msg:
+                return ""
+
+            msg = msg.strip()
+
+            if msg.lower() in ["message:", "message"]:
+                return ""
+
+            return msg
+
+        messages = []
+
+        # HTML5 validation
+        fields = [
+            self.input_fullname,
+            self.input_email,
+            self.input_phone,
+            self.input_address,
+        ]
+
+        for field in fields:
+            try:
+                element = self.driver.find_element(*field)
+
+                validation = clean_message(
+                    element.get_attribute("validationMessage")
+                )
+
+                if validation and validation not in messages:
+                    messages.append(validation)
+
+            except:
+                pass
+
+        # Field error messages
         try:
             elements = WebDriverWait(self.driver, timeout).until(
                 EC.presence_of_all_elements_located(
                     (By.CSS_SELECTOR, ".field-message.field-message-error")
                 )
             )
-            return [el.text.strip() for el in elements if el.text.strip()]
+
+            for el in elements:
+                text = clean_message(el.text)
+
+                if text and text not in messages:
+                    messages.append(text)
+
         except TimeoutException:
-            return []
+            pass
+
+        # Toast message
+        try:
+            toast_elements = self.driver.find_elements(
+                By.CSS_SELECTOR,
+                ".toast-message"
+            )
+
+            for el in toast_elements:
+                text = clean_message(el.text)
+
+                if text and text not in messages:
+                    messages.append(text)
+
+        except:
+            pass
+
+        return messages
 
     def get_success_message(self, timeout=10):
         try:

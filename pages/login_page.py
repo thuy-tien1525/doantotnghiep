@@ -15,10 +15,23 @@ class LoginPage:
         self.open_login_btn = (By.CSS_SELECTOR, "a[class='font-weight-bold']")
     def open(self, url):
         self.driver.get(url)
-    def open_login_form(self):
-        self.driver.find_element(*self.open_login_btn).click()
 
+    def open_login_form(self):
+        try:
+            element = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable(
+                    (By.CSS_SELECTOR, "a.font-weight-bold")
+                )
+            )
+
+            element.click()
+
+        except TimeoutException:
+            print("Không tìm thấy nút mở login form")
     def login(self, email, password):
+        email = email.strip() if email else ""
+        password = password.strip() if password else ""
+
         self.driver.find_element(*self.email_input).clear()
         self.driver.find_element(*self.email_input).send_keys(email or "")
         self.driver.find_element(*self.password_input).clear()

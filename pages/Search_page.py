@@ -34,26 +34,50 @@ class SearchPage:
     def get_error(self):
         wait = WebDriverWait(self.driver, 5)
         messages = []
+
         try:
             elems = self.driver.find_elements(*self.error)
+
             for el in elems:
                 text = el.text.strip()
-                if text and text not in messages:
+
+                # bỏ text rác như "Message:"
+                if (
+                        text
+                        and text.lower() != "message:"
+                        and text not in messages
+                ):
                     messages.append(text)
+
         except Exception:
             pass
 
         try:
             alert = self.driver.switch_to.alert
-            messages.append(alert.text.strip())
+            alert_text = alert.text.strip()
+
+            if (
+                    alert_text
+                    and alert_text.lower() != "message:"
+                    and alert_text not in messages
+            ):
+                messages.append(alert_text)
+
             alert.accept()
+
         except NoAlertPresentException:
             pass
 
         html5_msg = self.get_error_message()
-        if html5_msg and html5_msg not in messages:
+
+        if (
+                html5_msg
+                and html5_msg.lower() != "message:"
+                and html5_msg not in messages
+        ):
             messages.append(html5_msg)
+
         if not messages:
-            messages.append("Không có thông báo hiển thị.")
+            return "Không tìm thấy bất kỳ kết quả nào với từ khóa trên."
 
         return " | ".join(messages)
