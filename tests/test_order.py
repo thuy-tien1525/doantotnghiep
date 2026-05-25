@@ -24,7 +24,7 @@ def   test_order(browser, index, fullname, email, phone, address, province, dist
     order_page = OrderPage(driver)
 
     driver.maximize_window()
-    driver.get("https://thienlong.vn/collections/may-tinh-khoa-hoc-1?q=filter=((collectionid:product=1003213612))&page=1&sortby=manual&view=grid")
+    driver.get("https://thienlong.vn/collections/bst-cap-chong-gu?q=filter=((collectionid:product=1003163196))&page=1&sortby=created-descending&view=grid")
 
     test_name = f"test_order_{index}"
     screenshot_path = ""
