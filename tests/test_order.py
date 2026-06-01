@@ -37,8 +37,19 @@ def   test_order(browser, index, fullname, email, phone, address, province, dist
 
         assert cart_page.select_color(), "Sản phẩm hết hàng"
         cart_page.click_add_to_cart()
-        WebDriverWait(driver, 10).until(
-            EC.invisibility_of_element_located((By.CLASS_NAME, "swal-overlay"))
+        try:
+            WebDriverWait(driver, 5).until(
+                EC.visibility_of_element_located(
+                    (By.CSS_SELECTOR, ".swal-overlay")
+                )
+            )
+        except TimeoutException:
+            pass
+
+        WebDriverWait(driver, 15).until(
+            EC.invisibility_of_element_located(
+                (By.CSS_SELECTOR, ".swal-overlay")
+            )
         )
 
         cart_page.open_cart()

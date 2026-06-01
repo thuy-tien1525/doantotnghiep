@@ -19,8 +19,9 @@ def test_login(browser, index, email, password, expected_result):
 
     driver.get("https://thienlong.vn/")
     login_page.open_login_form()
-    login_page.login(email, password)
+    time.sleep(5)
 
+    login_page.login(email, password)
     time.sleep(2)
 
     test_name = f"test_login_{index}"

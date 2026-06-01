@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import ElementClickInterceptedException
 import time
 
 
@@ -28,10 +29,31 @@ class OrderPage:
         self.success_text = (By.XPATH, "//h2[contains(text(),'Đặt hàng thành công')]")
         self.error_message = (By.CSS_SELECTOR, ".toast-message")
         self.complete_order_btn = (By.XPATH, "//button[@class='step-footer-continue-btn btn']")
+
     def go_to_cart(self):
-        WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable(self.cart_icon)
-        ).click()
+        for _ in range(3):
+            try:
+                element = WebDriverWait(self.driver, 10).until(
+                    EC.element_to_be_clickable(self.cart_icon)
+                )
+
+                self.driver.execute_script(
+                    "arguments[0].scrollIntoView({block:'center'});",
+                    element
+                )
+
+                element.click()
+                return
+
+            except ElementClickInterceptedException:
+
+                WebDriverWait(self.driver, 5).until(
+                    EC.invisibility_of_element_located(
+                        (By.CSS_SELECTOR, ".swal-overlay")
+                    )
+                )
+
+        raise Exception("Cannot click cart icon")
 
     def click_checkout(self):
         element = WebDriverWait(self.driver, 10).until(
@@ -65,17 +87,19 @@ class OrderPage:
         )
 
     def select_district(self, district_name):
-        # Chờ select huyện hiển thị
-        district_select = WebDriverWait(self.driver, 10).until(
-            lambda d: d.find_element(By.ID, "customer_shipping_district")
-        )
-        # Chờ option mong muốn load xong
+
         WebDriverWait(self.driver, 15).until(
-            lambda d: any(opt.text.strip() == district_name for opt in
-                          Select(d.find_element(By.ID, "customer_shipping_district")).options)
+            lambda d: any(
+                opt.text.strip() == district_name
+                for opt in Select(
+                    d.find_element(*self.huyen_select)
+                ).options
+            )
         )
-        select = Select(district_select)
-        select.select_by_visible_text(district_name)
+
+        Select(
+            self.driver.find_element(*self.huyen_select)
+        ).select_by_visible_text(district_name)
 
     def select_ward(self, ward_name):
         WebDriverWait(self.driver, 10).until(
@@ -95,9 +119,10 @@ class OrderPage:
         time.sleep(2)
 
     def click_complete_order_btn(self):
-        button = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(
-                (By.CSS_SELECTOR, ".step-footer-continue-btn")
+
+        button = WebDriverWait(self.driver, 15).until(
+            EC.element_to_be_clickable(
+                self.complete_order_btn
             )
         )
 
@@ -106,14 +131,12 @@ class OrderPage:
             button
         )
 
-        try:
-            WebDriverWait(self.driver, 5).until(
-                EC.element_to_be_clickable(
-                    (By.CSS_SELECTOR, ".step-footer-continue-btn")
-                )
-            )
-            button.click()
+        WebDriverWait(self.driver, 5).until(
+            lambda d: button.is_enabled()
+        )
 
+        try:
+            button.click()
         except:
             self.driver.execute_script(
                 "arguments[0].click();",
@@ -157,7 +180,6 @@ class OrderPage:
             except:
                 pass
 
-        # Field error messages
         try:
             elements = WebDriverWait(self.driver, timeout).until(
                 EC.presence_of_all_elements_located(

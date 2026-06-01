@@ -29,14 +29,12 @@ class CartPage:
         element.click()
 
     def get_product_name(self):
-        try:
-            name = WebDriverWait(self.driver, 10).until(
-                EC.visibility_of_element_located(self.product_name)
-            ).text
-            print(f"Tên sản phẩm trước khi thêm: {name}")
-            return name
-        except TimeoutException:
-            raise Exception("Không tìm thấy tên sản phẩm!")
+        element = WebDriverWait(self.driver, 15).until(
+            EC.visibility_of_element_located(
+                (By.CSS_SELECTOR, ".product-name")
+            )
+        )
+        return element.text.strip()
 
     def select_color(self):
         try:
