@@ -9,7 +9,8 @@ from pages.Order_page import OrderPage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import (TimeoutException,StaleElementReferenceException)
+
 
 test_data = data_reader("Data/Order_data.xlsx", "Order_data")
 all_results = []
@@ -68,31 +69,41 @@ def   test_order(browser, index, fullname, email, phone, address, province, dist
         order_page.click_continue()
         order_page.click_complete_order_btn()
 
-
-
         try:
-            WebDriverWait(driver, 10).until(
-                lambda d: len(order_page.get_message_text()) > 0
-                          or order_page.get_success_message() != ""
+            WebDriverWait(driver, 15).until(
+                lambda d: (
+                        bool(order_page.get_message_text())
+                        or bool(order_page.get_success_message())
+                )
             )
-        except TimeoutException:
+        except Exception:
             pass
 
-        errors = order_page.get_message_text()  # trả về list lỗi
-        if errors:
-            actual_result = errors[0]  # lấy lỗi đầu tiên
-        else:
-            # Nếu không có lỗi, kiểm tra thông báo đặt hàng thành công
-            actual_result = order_page.get_success_message()
-            if not actual_result:
-                actual_result = ""
+        actual_result = ""
 
+        for _ in range(3):
+            try:
+                errors = order_page.get_message_text()
+
+                if errors:
+                    actual_result = errors[0]
+                else:
+                    actual_result = order_page.get_success_message() or ""
+
+                break
+
+            except StaleElementReferenceException:
+                time.sleep(1)
+
+        if not actual_result:
+            actual_result = ""
         status = "FAIL"
         try:
             if expected_result.strip() in actual_result.strip():
                 status = "PASS"
             else:
                 raise AssertionError(f"Expected: {expected_result}, Actual: {actual_result}")
+
         except Exception as e:
             screenshot_dir = "report/screenshots"
             os.makedirs(screenshot_dir, exist_ok=True)

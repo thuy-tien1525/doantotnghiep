@@ -1,8 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
-from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.common.exceptions import (TimeoutException,ElementClickInterceptedException,StaleElementReferenceException)
 import time
 
 
@@ -120,29 +119,31 @@ class OrderPage:
 
     def click_complete_order_btn(self):
 
-        button = WebDriverWait(self.driver, 15).until(
-            EC.element_to_be_clickable(
-                self.complete_order_btn
-            )
-        )
+        for _ in range(3):
 
-        self.driver.execute_script(
-            "arguments[0].scrollIntoView({block:'center'});",
-            button
-        )
+            try:
+                button = WebDriverWait(self.driver, 15).until(
+                    EC.element_to_be_clickable(
+                        self.complete_order_btn
+                    )
+                )
 
-        WebDriverWait(self.driver, 5).until(
-            lambda d: button.is_enabled()
-        )
+                self.driver.execute_script(
+                    "arguments[0].scrollIntoView({block:'center'});",
+                    button
+                )
 
-        try:
-            button.click()
-        except:
-            self.driver.execute_script(
-                "arguments[0].click();",
-                button
-            )
+                self.driver.execute_script(
+                    "arguments[0].click();",
+                    button
+                )
 
+                return
+
+            except StaleElementReferenceException:
+                time.sleep(1)
+
+        raise Exception("Cannot click complete order button")
     def get_message_text(self, timeout=10):
 
         def clean_message(msg):
@@ -168,32 +169,44 @@ class OrderPage:
 
         for field in fields:
             try:
-                element = self.driver.find_element(*field)
-
-                validation = clean_message(
-                    element.get_attribute("validationMessage")
-                )
+                try:
+                    validation = clean_message(
+                        self.driver.find_element(*field)
+                        .get_attribute("validationMessage")
+                    )
+                except StaleElementReferenceException:
+                    continue
 
                 if validation and validation not in messages:
                     messages.append(validation)
 
-            except:
-                pass
+            except (
+                    StaleElementReferenceException,
+                    TimeoutException
+            ):
+                continue
 
+            except Exception:
+                continue
+
+        # Field error message
         try:
-            elements = WebDriverWait(self.driver, timeout).until(
-                EC.presence_of_all_elements_located(
-                    (By.CSS_SELECTOR, ".field-message.field-message-error")
-                )
+            elements = self.driver.find_elements(
+                By.CSS_SELECTOR,
+                ".field-message.field-message-error"
             )
 
             for el in elements:
-                text = clean_message(el.text)
+                try:
+                    text = clean_message(el.text)
 
-                if text and text not in messages:
-                    messages.append(text)
+                    if text and text not in messages:
+                        messages.append(text)
 
-        except TimeoutException:
+                except StaleElementReferenceException:
+                    continue
+
+        except Exception:
             pass
 
         # Toast message
@@ -204,12 +217,16 @@ class OrderPage:
             )
 
             for el in toast_elements:
-                text = clean_message(el.text)
+                try:
+                    text = clean_message(el.text)
 
-                if text and text not in messages:
-                    messages.append(text)
+                    if text and text not in messages:
+                        messages.append(text)
 
-        except:
+                except StaleElementReferenceException:
+                    continue
+
+        except Exception:
             pass
 
         return messages
@@ -219,6 +236,14 @@ class OrderPage:
             element = WebDriverWait(self.driver, timeout).until(
                 EC.visibility_of_element_located(self.success_text)
             )
+
             return element.text.strip()
-        except TimeoutException:
-            return None
+
+        except (
+                TimeoutException,
+                StaleElementReferenceException
+        ):
+            return ""
+
+        except Exception:
+            return ""

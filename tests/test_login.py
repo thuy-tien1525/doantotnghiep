@@ -5,6 +5,8 @@ from pages.login_page import LoginPage
 from utils.data_reader import data_reader
 from utils.test_result_writer_excel import write_test_results_excel
 from datetime import datetime
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 test_data = data_reader("Data/Login_data.xlsx", "login_data")
@@ -19,8 +21,11 @@ def test_login(browser, index, email, password, expected_result):
 
     driver.get("https://thienlong.vn/")
     login_page.open_login_form()
-    time.sleep(5)
-
+    WebDriverWait(driver, 15).until(
+        EC.visibility_of_element_located(
+            login_page.email_input
+        )
+    )
     login_page.login(email, password)
     time.sleep(2)
 

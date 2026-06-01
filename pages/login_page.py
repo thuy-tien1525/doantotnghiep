@@ -11,7 +11,7 @@ class LoginPage:
         self.login_btn = (By.XPATH, "//button[contains(text(),'Đăng nhập')]")
         self.error = (By.CSS_SELECTOR, ".toast-message")
         self.error_html5 = (By.XPATH, "//div[@class='form-signup margin-bottom-15']")
-        self.greeting_text = (By.XPATH, "//a[contains(text(),'Hi, Phạm Tiên')]")
+        self.greeting_text = (By.XPATH, "//a[contains(text(),'Hi,')]")
         self.open_login_btn = (By.CSS_SELECTOR, "a[class='font-weight-bold']")
     def open(self, url):
         self.driver.get(url)
