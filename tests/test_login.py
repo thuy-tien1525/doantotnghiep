@@ -27,10 +27,7 @@ def test_login(browser, index, email, password, expected_result):
         )
     )
     login_page.login(email, password)
-
-    WebDriverWait(driver, 10).until(
-        lambda d: d.execute_script("return document.readyState") == "complete"
-    )
+    time.sleep(2)
 
     test_name = f"test_login_{index}"
     screenshot_path = ""
