@@ -25,7 +25,22 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Run tests
+      - name: Test Login
         env:
           CI: true
-        run: pytest -v
+        run: pytest tests/test_login.py -v
+
+      - name: Test Register
+        env:
+          CI: true
+        run: pytest tests/test_register.py -v
+
+      - name: Test Search
+        env:
+          CI: true
+        run: pytest tests/test_search.py -v
+
+      - name: Test Order
+        env:
+          CI: true
+        run: pytest tests/test_order.py -v

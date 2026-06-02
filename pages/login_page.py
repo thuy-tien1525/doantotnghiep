@@ -17,27 +17,13 @@ class LoginPage:
         self.driver.get(url)
 
     def open_login_form(self):
-        element = WebDriverWait(self.driver, 20).until(
-            EC.presence_of_element_located(
-                self.open_login_btn
-            )
-        )
 
-        self.driver.execute_script(
-            "arguments[0].scrollIntoView({block:'center'});",
-            element
-        )
-
-        WebDriverWait(self.driver, 10).until(
+        element = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(
-                self.open_login_btn
+                (By.XPATH, "//a[@class='font-weight-bold']")
             )
         )
-
-        self.driver.execute_script(
-            "arguments[0].click();",
-            element
-        )
+        element.click()
 
     def login(self, email, password):
         email = email.strip() if email else ""
@@ -92,7 +78,7 @@ class LoginPage:
                 pass
 
         try:
-            element = WebDriverWait(self.driver, 5).until(
+            element = WebDriverWait(self.driver, 20).until(
                 EC.visibility_of_element_located(self.greeting_text)
             )
             return element.text.strip()
