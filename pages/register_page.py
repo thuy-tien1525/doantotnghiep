@@ -52,43 +52,25 @@ class RegisterPage:
 
         except:
             pass
-
     def register(self, first_name="", last_name="", email="", phone="", password=""):
 
         self.handle_overlays()
 
-        # FIRST NAME
-        first_name_el = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(self.first_name_input)
-        )
-        first_name_el.clear()
-        first_name_el.send_keys(first_name or "")
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.first_name_input)).clear()
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(self.first_name_input)).send_keys(first_name or "")
 
-        # LAST NAME
-        last_name_el = self.driver.find_element(*self.last_name_input)
-        last_name_el.clear()
-        last_name_el.send_keys(last_name or "")
+        self.driver.find_element(*self.last_name_input).clear()
+        self.driver.find_element(*self.last_name_input).send_keys(last_name or "")
 
-        # EMAIL (🔥 FIX QUAN TRỌNG Ở ĐÂY)
-        email_el = self.driver.find_element(*self.email_input)
-        self.driver.execute_script("arguments[0].focus();", email_el)
+        self.driver.find_element(*self.email_input).clear()
+        self.driver.find_element(*self.email_input).send_keys(email or "")
 
-        email_el.clear()
-        email_el.send_keys(email or "")
+        self.driver.find_element(*self.phone_input).clear()
+        self.driver.find_element(*self.phone_input).send_keys(phone or "")
 
-        self.driver.execute_script("document.activeElement.blur();")
+        self.driver.find_element(*self.password_input).clear()
+        self.driver.find_element(*self.password_input).send_keys(password or "")
 
-        # PHONE
-        phone_el = self.driver.find_element(*self.phone_input)
-        phone_el.clear()
-        phone_el.send_keys(phone or "")
-
-        # PASSWORD
-        password_el = self.driver.find_element(*self.password_input)
-        password_el.clear()
-        password_el.send_keys(password or "")
-
-        # CLICK REGISTER
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(self.register_btn)
         ).click()
@@ -175,6 +157,7 @@ class RegisterPage:
         except TimeoutException:
             pass
 
+        # ===== Success =====
         try:
             success = WebDriverWait(self.driver, timeout).until(
                 EC.visibility_of_element_located(
