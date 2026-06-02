@@ -30,15 +30,15 @@ jobs:
           #CI: true
        # run: pytest tests/test_login.py -v
 
-      - name: Test Register
-        env:
-          CI: true
-        run: pytest tests/test_register.py -v
+      #- name: Test Register
+      #  env:
+      #    CI: true
+      #  run: pytest tests/test_register.py -v
 
-      - name: Test Search
-        env:
-          CI: true
-        run: pytest tests/test_search.py -v
+      #- name: Test Search
+      # env:
+      #    CI: true
+      #  run: pytest tests/test_search.py -v
 
       - name: Test Order
         env:

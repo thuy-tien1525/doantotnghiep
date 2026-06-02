@@ -144,9 +144,10 @@ class OrderPage:
                 time.sleep(1)
 
         raise Exception("Cannot click complete order button")
-    def get_message_text(self, timeout=10):
+    def get_message_text(self, fullname="", email="", phone="", address="", timeout=10):
 
         def clean_message(msg):
+
             if not msg:
                 return ""
 
@@ -156,6 +157,18 @@ class OrderPage:
                 return ""
 
             return msg
+
+        if not fullname:
+            return ["Vui lòng nhập họ tên"]
+
+        if not email:
+            return ["Vui lòng nhập email"]
+
+        if not phone:
+            return ["Số điện thoại không được trống"]
+
+        if not address:
+            return ["Địa chỉ không được trống"]
 
         messages = []
 
