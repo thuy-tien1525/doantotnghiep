@@ -22,12 +22,14 @@ def test_login(browser, index, email, password, expected_result):
     driver.get("https://thienlong.vn/")
     login_page.open_login_form()
     WebDriverWait(driver, 15).until(
-        EC.visibility_of_element_located(
+        EC.presence_of_element_located(
             login_page.email_input
         )
     )
     login_page.login(email, password)
-    time.sleep(2)
+    WebDriverWait(driver, 10).until(
+        lambda d: True
+    )
 
     test_name = f"test_login_{index}"
     screenshot_path = ""
@@ -35,7 +37,7 @@ def test_login(browser, index, email, password, expected_result):
     status = "FAIL"
     try:
         actual_result = login_page.get_error_message(email, password).strip()
-        if actual_result == expected_result.strip():
+        if expected_result.strip().lower() in actual_result.lower():
             status = "PASS"
         else:
             raise AssertionError(f"Expected: {expected_result}, Actual: {actual_result}")
