@@ -77,13 +77,10 @@ class OrderPage:
         time.sleep(5)
 
     def select_province(self, province_name):
-        select = Select(self.driver.find_element(*self.tinh_select))
+        select = Select(WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(self.tinh_select)
+        ))
         select.select_by_visible_text(province_name)
-        time.sleep(2)
-
-        WebDriverWait(self.driver, 10).until(
-            lambda d: len(Select(d.find_element(*self.huyen_select)).options) > 1
-        )
 
     def select_district(self, district_name):
 
@@ -170,36 +167,21 @@ class OrderPage:
         for field in fields:
             validation = ""
 
-            try:
-                el = self.driver.find_element(*field)
-                validation = el.get_attribute("validationMessage") or ""
-                validation = validation.strip()
-            except StaleElementReferenceException:
-                continue
-            except Exception:
-                continue
-
-            if validation and validation not in messages:
-                messages.append(validation)
-        # Field error message
-        try:
-            elements = self.driver.find_elements(
-                By.CSS_SELECTOR,
-                ".field-message.field-message-error"
-            )
-
-            for el in elements:
+            for _ in range(2):
                 try:
-                    text = clean_message(el.text)
+                    el = WebDriverWait(self.driver, 3).until(
+                        EC.presence_of_element_located(field)
+                    )
 
-                    if text and text not in messages:
-                        messages.append(text)
+                    validation = el.get_attribute("validationMessage") or ""
+                    validation = validation.strip()
+
+                    break
 
                 except StaleElementReferenceException:
                     continue
-
-        except Exception:
-            pass
+                except TimeoutException:
+                    break
 
         # Toast message
         try:
