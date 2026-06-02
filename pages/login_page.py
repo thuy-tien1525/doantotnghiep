@@ -69,10 +69,10 @@ class LoginPage:
         email = str(email).strip() if email else ""
         password = str(password).strip() if password else ""
 
-        # HTML5 validation
         try:
             email_el = self.driver.find_element(*self.email_input)
             self.driver.execute_script("arguments[0].blur();", email_el)
+            self.driver.execute_script("arguments[0].dispatchEvent(new Event('input'))", email_el)
 
             email_validation = email_el.get_attribute("validationMessage")
             if email_validation:
@@ -83,9 +83,9 @@ class LoginPage:
         try:
             pw_el = self.driver.find_element(*self.password_input)
             self.driver.execute_script("arguments[0].blur();", pw_el)
+            self.driver.execute_script("arguments[0].dispatchEvent(new Event('input'))", pw_el)
 
             password_validation = pw_el.get_attribute("validationMessage")
-
             if password_validation:
                 return password_validation.strip()
         except:

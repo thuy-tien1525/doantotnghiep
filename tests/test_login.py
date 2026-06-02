@@ -7,7 +7,7 @@ from utils.test_result_writer_excel import write_test_results_excel
 from datetime import datetime
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
+
 
 test_data = data_reader("Data/Login_data.xlsx", "login_data")
 all_results = []
@@ -32,7 +32,7 @@ def test_login(browser, index, email, password, expected_result):
         lambda d: (
                 len(d.find_elements(*login_page.error)) > 0
                 or len(d.find_elements(*login_page.greeting_text)) > 0
-                or len(d.find_elements(By.CSS_SELECTOR, ".toast-message")) > 0
+                or d.execute_script("return document.readyState") == "complete"
         )
     )
     test_name = f"test_login_{index}"
