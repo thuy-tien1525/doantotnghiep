@@ -157,7 +157,6 @@ class RegisterPage:
         except TimeoutException:
             pass
 
-        # ===== Success =====
         try:
             success = WebDriverWait(self.driver, timeout).until(
                 EC.visibility_of_element_located(
