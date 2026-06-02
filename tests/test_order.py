@@ -68,7 +68,10 @@ def   test_order(browser, index, fullname, email, phone, address, province, dist
         order_page.select_ward(ward)
         order_page.click_continue()
         order_page.click_complete_order_btn()
-
+        WebDriverWait(driver, 10).until(
+            lambda d: d.execute_script("return document.readyState") == "complete"
+        )
+        time.sleep(1)
         try:
             WebDriverWait(driver, 15).until(
                 lambda d: (

@@ -165,23 +165,16 @@ class OrderPage:
         ]
 
         for field in fields:
-            validation = ""
+            try:
+                el = self.driver.find_element(*field)
+                validation = el.get_attribute("validationMessage") or ""
+                validation = validation.strip()
 
-            for _ in range(2):
-                try:
-                    el = WebDriverWait(self.driver, 3).until(
-                        EC.presence_of_element_located(field)
-                    )
+                if validation:
+                    messages.append(validation)
 
-                    validation = el.get_attribute("validationMessage") or ""
-                    validation = validation.strip()
-
-                    break
-
-                except StaleElementReferenceException:
-                    continue
-                except TimeoutException:
-                    break
+            except StaleElementReferenceException:
+                continue
 
         # Toast message
         try:
