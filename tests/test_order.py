@@ -68,16 +68,12 @@ def   test_order(browser, index, fullname, email, phone, address, province, dist
         order_page.select_ward(ward)
         order_page.click_continue()
         order_page.click_complete_order_btn()
-        WebDriverWait(driver, 10).until(
-            lambda d: d.execute_script("return document.readyState") == "complete"
-        )
-        time.sleep(1)
+
         try:
             WebDriverWait(driver, 15).until(
                 lambda d: (
-                        len(d.find_elements(By.CSS_SELECTOR, ".toast-message")) > 0
-                        or len(d.find_elements(By.XPATH, "//h2[contains(text(),'Đặt hàng thành công')]")) > 0
-                        or len(d.find_elements(By.CSS_SELECTOR, ".field-message-error")) > 0
+                        bool(order_page.get_message_text())
+                        or bool(order_page.get_success_message())
                 )
             )
         except Exception:

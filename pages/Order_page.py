@@ -77,10 +77,13 @@ class OrderPage:
         time.sleep(5)
 
     def select_province(self, province_name):
-        select = Select(WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located(self.tinh_select)
-        ))
+        select = Select(self.driver.find_element(*self.tinh_select))
         select.select_by_visible_text(province_name)
+        time.sleep(2)
+
+        WebDriverWait(self.driver, 10).until(
+            lambda d: len(Select(d.find_element(*self.huyen_select)).options) > 1
+        )
 
     def select_district(self, district_name):
 
@@ -166,15 +169,45 @@ class OrderPage:
 
         for field in fields:
             try:
-                el = self.driver.find_element(*field)
-                validation = el.get_attribute("validationMessage") or ""
-                validation = validation.strip()
+                try:
+                    validation = clean_message(
+                        self.driver.find_element(*field)
+                        .get_attribute("validationMessage")
+                    )
+                except StaleElementReferenceException:
+                    continue
 
-                if validation:
+                if validation and validation not in messages:
                     messages.append(validation)
 
-            except StaleElementReferenceException:
+            except (
+                    StaleElementReferenceException,
+                    TimeoutException
+            ):
                 continue
+
+            except Exception:
+                continue
+
+        # Field error message
+        try:
+            elements = self.driver.find_elements(
+                By.CSS_SELECTOR,
+                ".field-message.field-message-error"
+            )
+
+            for el in elements:
+                try:
+                    text = clean_message(el.text)
+
+                    if text and text not in messages:
+                        messages.append(text)
+
+                except StaleElementReferenceException:
+                    continue
+
+        except Exception:
+            pass
 
         # Toast message
         try:
