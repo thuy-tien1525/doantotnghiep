@@ -72,14 +72,7 @@ def   test_order(browser, index, fullname, email, phone, address, province, dist
         try:
             WebDriverWait(driver, 15).until(
                 lambda d: (
-                        bool(
-                            order_page.get_message_text(
-                                fullname,
-                                email,
-                                phone,
-                                address
-                            )
-                        )
+                        bool(order_page.get_message_text())
                         or bool(order_page.get_success_message())
                 )
             )
@@ -90,12 +83,7 @@ def   test_order(browser, index, fullname, email, phone, address, province, dist
 
         for _ in range(3):
             try:
-                errors = order_page.get_message_text(
-                    fullname,
-                    email,
-                    phone,
-                    address
-                )
+                errors = order_page.get_message_text()
 
                 if errors:
                     actual_result = errors[0]
