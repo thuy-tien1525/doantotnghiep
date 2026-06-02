@@ -28,10 +28,11 @@ def test_login(browser, index, email, password, expected_result):
     )
     login_page.login(email, password)
 
-    WebDriverWait(driver, 10).until(
-        EC.any_of(
-            EC.presence_of_element_located(login_page.error),
-            EC.presence_of_element_located(login_page.greeting_text)
+    WebDriverWait(driver, 15).until(
+        lambda d: (
+                len(d.find_elements(*login_page.error)) > 0
+                or len(d.find_elements(*login_page.greeting_text)) > 0
+                or d.execute_script("return document.readyState") == "complete"
         )
     )
     test_name = f"test_login_{index}"

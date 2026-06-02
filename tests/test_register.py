@@ -81,10 +81,6 @@ def test_registration(
 
         status = "FAIL"
 
-
-
-
-
     all_results.append({
 
         "Time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
