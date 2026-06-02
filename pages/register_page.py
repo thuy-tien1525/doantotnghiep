@@ -74,9 +74,11 @@ class RegisterPage:
         self.driver.find_element(*self.password_input).clear()
         self.driver.find_element(*self.password_input).send_keys(password or "")
 
-        self.driver.find_element(*self.register_btn).click()
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.register_btn)
+        ).click()
 
-    def get_message(self, first_name, last_name, email, phone, password, timeout=3):
+    def get_message(self, first_name, last_name, email, phone, password, timeout=5):
 
         def clean_message(msg):
             if not msg:
@@ -84,55 +86,40 @@ class RegisterPage:
 
             msg = msg.strip()
 
-            # bỏ message rác
             if msg.lower() in ["message:", "message"]:
                 return ""
 
             return msg
 
-        # Required fields
-        if not first_name:
-            return clean_message(
-                self.driver.find_element(*self.first_name_input)
-                .get_attribute("validationMessage")
-            )
+        # ===== HTML5 Validation của tất cả field =====
+        validation_fields = [
+            self.first_name_input,
+            self.last_name_input,
+            self.email_input,
+            self.phone_input,
+            self.password_input
+        ]
 
-        if not last_name:
-            return clean_message(
-                self.driver.find_element(*self.last_name_input)
-                .get_attribute("validationMessage")
-            )
+        for field in validation_fields:
+            try:
+                msg = self.driver.find_element(
+                    *field
+                ).get_attribute("validationMessage")
 
-        if not email:
-            return clean_message(
-                self.driver.find_element(*self.email_input)
-                .get_attribute("validationMessage")
-            )
+                msg = clean_message(msg)
 
-        if not phone:
-            return clean_message(
-                self.driver.find_element(*self.phone_input)
-                .get_attribute("validationMessage")
-            )
+                if msg:
+                    return msg
 
-        if not password:
-            return clean_message(
-                self.driver.find_element(*self.password_input)
-                .get_attribute("validationMessage")
-            )
+            except:
+                pass
 
-        # Email format validation
-        email_validation = clean_message(
-            self.driver.find_element(*self.email_input)
-            .get_attribute("validationMessage")
-        )
-
-        if email_validation:
-            return email_validation
-
-        # Browser alert
+        # ===== Browser Alert =====
         try:
-            WebDriverWait(self.driver, 2).until(EC.alert_is_present())
+            WebDriverWait(self.driver, 3).until(
+                EC.alert_is_present()
+            )
+
             alert = self.driver.switch_to.alert
 
             text = clean_message(alert.text)
@@ -145,10 +132,12 @@ class RegisterPage:
         except TimeoutException:
             pass
 
-        # Toast message
+        # ===== Toast Message =====
         try:
             element = WebDriverWait(self.driver, timeout).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, ".toast-message"))
+                EC.visibility_of_element_located(
+                    self.error_toast
+                )
             )
 
             text = clean_message(element.text)
@@ -159,13 +148,31 @@ class RegisterPage:
         except TimeoutException:
             pass
 
-        # HTML error
+        # ===== HTML Error =====
         try:
             element = WebDriverWait(self.driver, timeout).until(
-                EC.visibility_of_element_located(self.error_html5)
+                EC.visibility_of_element_located(
+                    self.error_html5
+                )
             )
 
             text = clean_message(element.text)
+
+            if text:
+                return text
+
+        except TimeoutException:
+            pass
+
+        # ===== Success =====
+        try:
+            success = WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_element_located(
+                    self.success
+                )
+            )
+
+            text = clean_message(success.text)
 
             if text:
                 return text
@@ -174,5 +181,4 @@ class RegisterPage:
             pass
 
         return "Không tìm thấy thông báo"
-
 
