@@ -187,10 +187,10 @@
     <list>
       <item itemvalue="Python.Order_page" />
       <item itemvalue="Python tests.pytest in PyCharm 2025.2.1.1" />
-      <item itemvalue="Python tests.pytest in test_login.py" />
       <item itemvalue="Python tests.pytest in test_cart2.py" />
-      <item itemvalue="Python tests.pytest in test_search2.py" />
+      <item itemvalue="Python tests.pytest in test_login.py" />
       <item itemvalue="Python tests.pytest in test_order.py" />
+      <item itemvalue="Python tests.pytest in test_search2.py" />
     </list>
     <recent_temporary>
       <list>
