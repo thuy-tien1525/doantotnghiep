@@ -81,7 +81,7 @@ def test_registration(
 
         status = "FAIL"
 
-        actual_result = str(e)
+
 
 
 
