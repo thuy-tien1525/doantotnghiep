@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b50b622-d4bd-4bea-960d-6bdbfaa75eea" name="Changes" comment="" />
+    <list default="true" id="9b50b622-d4bd-4bea-960d-6bdbfaa75eea" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/report/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_login.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,7 +80,7 @@
       <recent name="E:\test_TL\Register_data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in test_search2.py">
+  <component name="RunManager" selected="Python tests.pytest in test_login.py">
     <configuration name="Order_page" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test_TL" />
       <option name="ENV_FILES" value="" />
@@ -133,6 +138,23 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest in test_login.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="test_TL" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_login.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="pytest in test_order.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="test_TL" />
       <option name="ENV_FILES" value="" />
@@ -167,38 +189,21 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="pytest in test_search.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="test_TL" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/test_search.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.Order_page" />
       <item itemvalue="Python tests.pytest in PyCharm 2025.2.1.1" />
+      <item itemvalue="Python tests.pytest in test_login.py" />
       <item itemvalue="Python tests.pytest in test_cart2.py" />
       <item itemvalue="Python tests.pytest in test_search2.py" />
-      <item itemvalue="Python tests.pytest in test_search.py" />
       <item itemvalue="Python tests.pytest in test_order.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.pytest in test_login.py" />
         <item itemvalue="Python tests.pytest in test_search2.py" />
         <item itemvalue="Python tests.pytest in test_cart2.py" />
         <item itemvalue="Python tests.pytest in test_order.py" />
         <item itemvalue="Python.Order_page" />
-        <item itemvalue="Python tests.pytest in test_search.py" />
       </list>
     </recent_temporary>
   </component>

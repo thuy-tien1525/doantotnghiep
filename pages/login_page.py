@@ -23,28 +23,12 @@ class LoginPage:
         self.driver.get(url)
 
     def open_login_form(self):
-
-        element = WebDriverWait(self.driver, 20).until(
-            EC.presence_of_element_located(
-                self.open_login_btn
+        element = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(
+                (By.XPATH, "//a[@class='font-weight-bold']")
             )
         )
-
-        self.driver.execute_script(
-            "arguments[0].scrollIntoView({block:'center'});",
-            element
-        )
-
-        self.driver.execute_script(
-            "arguments[0].click();",
-            element
-        )
-
-        WebDriverWait(self.driver, 20).until(
-            EC.visibility_of_element_located(
-                self.email_input
-            )
-        )
+        element.click()
 
     def login(self, email, password):
 
