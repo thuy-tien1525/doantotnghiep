@@ -53,7 +53,7 @@ def test_registration(
             email=email,
             phone=phone,
             password=password
-        ).strip()
+        ).replace("Message:", "").strip()
 
         if expected_result.strip().lower() in actual_result.lower():
             status = "PASS"
@@ -62,6 +62,7 @@ def test_registration(
                 f"Expected: {expected_result}, Actual: {actual_result}"
             )
 
+
     except Exception as e:
 
         screenshot_dir = "report/screenshots"
@@ -69,14 +70,20 @@ def test_registration(
         os.makedirs(screenshot_dir, exist_ok=True)
 
         screenshot_path = os.path.join(
+
             screenshot_dir,
+
             f"{test_name}.png"
+
         )
 
         driver.save_screenshot(screenshot_path)
 
-        if not actual_result:
-            actual_result = str(e)
+        status = "FAIL"
+
+        actual_result = str(e)
+
+
 
     all_results.append({
 
