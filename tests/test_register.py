@@ -4,13 +4,10 @@ from utils.data_reader import data_reader
 from pages.register_page import RegisterPage
 from utils.test_result_writer_excel import write_test_results_excel
 from datetime import datetime
-from selenium.webdriver.support.ui import WebDriverWait
 
 
-test_data = data_reader("Data/register_data.csv", "register_data")
+test_data = data_reader("Data/register_data.csv","register_data")
 all_results = []
-
-
 @pytest.mark.parametrize(
     "index,first_name,last_name,email,phone,password,expected_result",
     [
@@ -50,12 +47,7 @@ def test_registration(
             password
         )
 
-        # =========================
-        # FIX: wait + no params
-        # =========================
-        actual_result = WebDriverWait(driver, 10).until(
-            lambda d: reg_page.get_message()
-        ).strip()
+        actual_result = reg_page.get_message().strip()
 
         if expected_result.strip().lower() in actual_result.lower():
             status = "PASS"
@@ -67,6 +59,7 @@ def test_registration(
     except Exception as e:
 
         screenshot_dir = "report/screenshots"
+
         os.makedirs(screenshot_dir, exist_ok=True)
 
         screenshot_path = os.path.join(
@@ -77,21 +70,28 @@ def test_registration(
         driver.save_screenshot(screenshot_path)
 
         if not actual_result:
-            actual_result = f"NO MESSAGE - {str(e)}"
+            actual_result = str(e)
 
     all_results.append({
 
         "Time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
 
         "Test Name": test_name,
+
         "First Name": first_name,
+
         "Last Name": last_name,
+
         "Email": email,
+
         "Phone": phone,
+
         "Password": password,
 
         "Expected": expected_result,
+
         "Actual": actual_result,
+
         "Status": status,
 
         "Screenshot": screenshot_path if status == "FAIL" else ""
