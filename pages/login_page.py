@@ -36,13 +36,13 @@ class LoginPage:
         password = str(password).strip() if password else ""
 
         email_element = WebDriverWait(self.driver, 20).until(
-            EC.visibility_of_element_located(
+            EC.presence_of_element_located(
                 self.email_input
             )
         )
 
         password_element = WebDriverWait(self.driver, 20).until(
-            EC.visibility_of_element_located(
+            EC.presence_of_element_located(
                 self.password_input
             )
         )
@@ -71,19 +71,20 @@ class LoginPage:
 
         # HTML5 validation
         try:
-            email_validation = self.driver.find_element(
-                *self.email_input
-            ).get_attribute("validationMessage")
+            email_el = self.driver.find_element(*self.email_input)
+            self.driver.execute_script("arguments[0].blur();", email_el)
 
+            email_validation = email_el.get_attribute("validationMessage")
             if email_validation:
                 return email_validation.strip()
         except:
             pass
 
         try:
-            password_validation = self.driver.find_element(
-                *self.password_input
-            ).get_attribute("validationMessage")
+            pw_el = self.driver.find_element(*self.password_input)
+            self.driver.execute_script("arguments[0].blur();", pw_el)
+
+            password_validation = pw_el.get_attribute("validationMessage")
 
             if password_validation:
                 return password_validation.strip()
@@ -93,7 +94,7 @@ class LoginPage:
         # Toast lỗi đăng nhập
         try:
             element = WebDriverWait(self.driver, timeout).until(
-                EC.visibility_of_element_located(
+                EC.presence_of_element_located(
                     self.error
                 )
             )
@@ -105,7 +106,7 @@ class LoginPage:
         # Login thành công
         try:
             element = WebDriverWait(self.driver, timeout).until(
-                EC.visibility_of_element_located(
+                EC.presence_of_element_located(
                     self.greeting_text
                 )
             )
