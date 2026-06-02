@@ -168,27 +168,19 @@ class OrderPage:
         ]
 
         for field in fields:
+            validation = ""
+
             try:
-                try:
-                    validation = clean_message(
-                        self.driver.find_element(*field)
-                        .get_attribute("validationMessage")
-                    )
-                except StaleElementReferenceException:
-                    continue
-
-                if validation and validation not in messages:
-                    messages.append(validation)
-
-            except (
-                    StaleElementReferenceException,
-                    TimeoutException
-            ):
+                el = self.driver.find_element(*field)
+                validation = el.get_attribute("validationMessage") or ""
+                validation = validation.strip()
+            except StaleElementReferenceException:
                 continue
-
             except Exception:
                 continue
 
+            if validation and validation not in messages:
+                messages.append(validation)
         # Field error message
         try:
             elements = self.driver.find_elements(

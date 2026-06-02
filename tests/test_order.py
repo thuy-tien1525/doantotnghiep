@@ -72,8 +72,9 @@ def   test_order(browser, index, fullname, email, phone, address, province, dist
         try:
             WebDriverWait(driver, 15).until(
                 lambda d: (
-                        bool(order_page.get_message_text())
-                        or bool(order_page.get_success_message())
+                        len(d.find_elements(By.CSS_SELECTOR, ".toast-message")) > 0
+                        or len(d.find_elements(By.XPATH, "//h2[contains(text(),'Đặt hàng thành công')]")) > 0
+                        or len(d.find_elements(By.CSS_SELECTOR, ".field-message-error")) > 0
                 )
             )
         except Exception:
