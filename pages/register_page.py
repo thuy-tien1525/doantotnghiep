@@ -96,17 +96,22 @@ class RegisterPage:
             self.password_input
         ]
 
-        try:
-            msg = self.driver.execute_script(
-                "return document.querySelector(':invalid')?.validationMessage || ''"
-            )
+        for field in validation_fields:
+            try:
+                el = self.driver.find_element(*field)
+                self.driver.execute_script("arguments[0].blur();", el)
 
-            msg = clean_message(msg)
+                msg = self.driver.find_element(
+                    *field
+                ).get_attribute("validationMessage")
 
-            if msg:
-                return msg
-        except:
-            pass
+                msg = clean_message(msg)
+
+                if msg:
+                    return msg
+
+            except:
+                pass
 
         try:
             WebDriverWait(self.driver, 3).until(
