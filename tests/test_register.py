@@ -47,7 +47,13 @@ def test_registration(
             password
         )
 
-        actual_result = reg_page.get_message().strip()
+        actual_result = reg_page.get_message(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            password=password
+        ).strip()
 
         if expected_result.strip().lower() in actual_result.lower():
             status = "PASS"
