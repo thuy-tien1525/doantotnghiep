@@ -75,102 +75,16 @@ class RegisterPage:
             EC.element_to_be_clickable(self.register_btn)
         ).click()
 
-    def get_message(self, first_name, last_name, email, phone, password, timeout=5):
-
-        def clean_message(msg):
-            if not msg:
-                return ""
-
-            msg = msg.strip()
-
-            if msg.lower() in ["message:", "message"]:
-                return ""
-
-            return msg
-
-        validation_fields = [
-            self.first_name_input,
-            self.last_name_input,
-            self.email_input,
-            self.phone_input,
-            self.password_input
-        ]
-
-        for field in validation_fields:
-            try:
-                msg = self.driver.find_element(
-                    *field
-                ).get_attribute("validationMessage")
-
-                msg = clean_message(msg)
-
-                if msg:
-                    return msg
-
-            except:
-                pass
-
-        try:
-            WebDriverWait(self.driver, 3).until(
-                EC.alert_is_present()
-            )
-
-            alert = self.driver.switch_to.alert
-
-            text = clean_message(alert.text)
-
-            alert.accept()
-
-            if text:
-                return text
-
-        except TimeoutException:
-            pass
+    def get_message(self, timeout=5):
 
         try:
             element = WebDriverWait(self.driver, timeout).until(
-                EC.visibility_of_element_located(
-                    self.error_toast
-                )
+                EC.visibility_of_element_located((By.CSS_SELECTOR, ".toast-message"))
             )
 
-            text = clean_message(element.text)
-
-            if text:
-                return text
+            return element.text.strip()
 
         except TimeoutException:
             pass
 
-        try:
-            element = WebDriverWait(self.driver, timeout).until(
-                EC.visibility_of_element_located(
-                    self.error_html5
-                )
-            )
-
-            text = clean_message(element.text)
-
-            if text:
-                return text
-
-        except TimeoutException:
-            pass
-
-        try:
-            success = WebDriverWait(self.driver, timeout).until(
-                EC.visibility_of_element_located(
-                    self.success
-                )
-            )
-
-            text = clean_message(success.text)
-
-            if text:
-                return text
-
-        except TimeoutException:
-            pass
-
-        return "Không tìm thấy thông báo"
-
+        return ""
