@@ -26,19 +26,21 @@ def test_login(browser, index, email, password, expected_result):
             login_page.email_input
         )
     )
-    WebDriverWait(driver, 10).until(
-        lambda d: len(d.find_elements(*login_page.error)) > 0
-                  or len(d.find_elements(*login_page.greeting_text)) > 0
-                  or d.execute_script("return document.readyState") == "complete"
-    )
+    login_page.login(email, password)
 
+    WebDriverWait(driver, 10).until(
+        EC.any_of(
+            EC.presence_of_element_located(login_page.error),
+            EC.presence_of_element_located(login_page.greeting_text)
+        )
+    )
     test_name = f"test_login_{index}"
     screenshot_path = ""
     actual_result = ""
     status = "FAIL"
     try:
         actual_result = login_page.get_error_message(email, password).strip()
-        if expected_result.strip().lower() in actual_result.lower():
+        if expected_result.strip().lower() in actual_result.strip().lower():
             status = "PASS"
         else:
             raise AssertionError(f"Expected: {expected_result}, Actual: {actual_result}")
