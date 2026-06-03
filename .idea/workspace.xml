@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9b50b622-d4bd-4bea-960d-6bdbfaa75eea" name="Changes" comment="" />
+    <list default="true" id="9b50b622-d4bd-4bea-960d-6bdbfaa75eea" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,11 +183,11 @@
     </configuration>
     <list>
       <item itemvalue="Python tests.pytest in PyCharm 2025.2.1.1" />
-      <item itemvalue="Python tests.pytest in test_cart2.py" />
-      <item itemvalue="Python tests.pytest in test_login.py" />
-      <item itemvalue="Python tests.pytest in test_order.py" />
       <item itemvalue="Python tests.pytest in test_register.py" />
+      <item itemvalue="Python tests.pytest in test_login.py" />
+      <item itemvalue="Python tests.pytest in test_cart2.py" />
       <item itemvalue="Python tests.pytest in test_search2.py" />
+      <item itemvalue="Python tests.pytest in test_order.py" />
     </list>
     <recent_temporary>
       <list>
